@@ -17,7 +17,7 @@ void main(void)
     P2DIR &= 0x00;
 
     CCTL0 = CCIE;               //CCR0 Interrupt enabled
-    TA0CTL = TASSEL_2 + MC_1 + ID_3; //SMCLK/ID_3(8), CountMode = up/down mode
+    TA0CTL = TASSEL_2 + MC_1 + ID_3; //SMCLK/ID_3(8), CountMode = up mode
     CCR0 = 12000;               //Sets CCR0
 
     P1DIR |= BIT0;      //Sets port 1.0 as outputs rest are inputs still
