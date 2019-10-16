@@ -2,7 +2,7 @@
 
 In this part of the lab we were supposed to give a different behavior to our board when we pressed a button. Therefore, I used both a timer, and a button interrupt to accomplish this task. I used a variable called "interruptFlag". Which can only be a 1 or a 0. So inside of my button interrupt I control this variable, saying if the button is pressed change "interruptFlag" to a 1 or 0 depending on its prior state.
 
-'''c
+```c
 #pragma vector = PORT1_VECTOR           //button interrupt vector
 __interrupt void PORT1(void)
 {
@@ -10,10 +10,10 @@ __interrupt void PORT1(void)
    // P1OUT ^= BIT6;          //toggle 1.6
     P1IFG &= ~BIT3;         //clear 1.3(button)
 }
-'''
+```
 
 Next, We controlled our timer with that variable inside of the Timer interrupt vector using an if statement seen below,
-'''c
+```c
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void TIMER_A (void)
 {
@@ -27,6 +27,6 @@ __interrupt void TIMER_A (void)
     //P1IFG &= ~BIT3;
     }
 }
-'''
+```
 Essentially what this code says, is that if "interruptFlag" is a 0, blink the left LED keep the right LED off
 if "interruptFlag" is a 1, Blink the right LED, keep the left LED off.
