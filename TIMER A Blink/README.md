@@ -3,9 +3,9 @@
 This lab was meant to teach us how to use the timer peripheral on our device.
 
 In order to instantiate the clock we use
-'''c
+```c
 TA0CTL = TASSEL_2 + MC_1 + ID_3; //SMCLK/ID_3(8), CountMode = up mode
-'''
+```
 
 This will cause the clock to run on the sub-master clock system which is divided by 8 because of (ID_3). Finally, the clock is also set into up mode due to MC_1.
 
